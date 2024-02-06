@@ -66,27 +66,37 @@ Last Update: 9 May 2023
   });
 
   // 4. Pricing switch
-  const tableWrapper = document.querySelector(".pricing-table");
-  if (tableWrapper) {
-    const switchInputs = document.querySelectorAll(".switch-wrapper input");
-    const prices = tableWrapper.querySelectorAll(".price");
-    const toggleClass = "d-none";
+  // const tableWrapper = document.querySelector(".pricing-table");
+  // if (tableWrapper) {
+  //   const switchInputs = document.querySelectorAll(".switch-wrapper input");
+  //   const prices = tableWrapper.querySelectorAll(".price");
+  //   const toggleClass = "d-none";
 
-    switchInputs.forEach((switchInput) => {
-      switchInput.addEventListener("input", function () {
-        prices.forEach((price) => {
-          price.classList.add(toggleClass);
-        });
+  //   switchInputs.forEach((switchInput) => {
+  //     switchInput.addEventListener("input", function () {
+  //       prices.forEach((price) => {
+  //         price.classList.add(toggleClass);
+  //       });
 
-        const activePrices = tableWrapper.querySelectorAll(
-          `.price.${switchInput.id}`
-        );
-        activePrices.forEach((activePrice) => {
-          activePrice.classList.remove(toggleClass);
-        });
-      });
-    });
-  }
+  //       const activePrices = tableWrapper.querySelectorAll(
+  //         `.price.${switchInput.id}`
+  //       );
+  //       activePrices.forEach((activePrice) => {
+  //         activePrice.classList.remove(toggleClass);
+  //       });
+  //     });
+  //   });
+  // }
+  // document.getElementById("playButton").addEventListener("click", function () {
+  //   var video = document.getElementById("myVideo");
+  //   if (video.paused) {
+  //     video.play();
+  //     this.textContent = "Pause Video";
+  //   } else {
+  //     video.pause();
+  //     this.textContent = "Play Video";
+  //   }
+  // });
 
   // 5. Review carousel
   const reviewCarousel = new Swiper(".review-carousel", {
@@ -312,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Simulate a delay (you can replace this with actual loading logic)
   setTimeout(function () {
     hidePreloader();
-  }, 5000); // Adjust the delay time as needed
+  }, 3000); // Adjust the delay time as needed
 });
 
 function hidePreloader() {
@@ -354,5 +364,90 @@ document
     var link = this.querySelector("a");
     if (link) {
       link.click();
+    }
+  });
+
+// -----------------------------------------
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   fetchData();
+// });
+
+// async function fetchData() {
+//   try {
+//     const response = await fetch(
+//       new Request("https://api.livecoinwatch.com/coins/list"),
+//       {
+//         method: "POST",
+//         headers: new Headers({
+//           "content-type": "application/json",
+//           "x-api-key": "<YOUR_API_KEY>",
+//         }),
+//         body: JSON.stringify({
+//           currency: "USD",
+//           sort: "rank",
+//           order: "ascending",
+//           offset: 5,
+//           limit: 2,
+//           meta: false,
+//         }),
+//       }
+//     );
+
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
+//     }
+
+//     const data = await response.json();
+//     displayData(data);
+//   } catch (error) {
+//     console.error("There was a problem with the fetch operation:", error);
+//   }
+// }
+
+// function displayData(data) {
+//   const apiDataElement = document.getElementById("api-data");
+
+//   // Clear previous content
+//   apiDataElement.innerHTML = "";
+
+//   // Create and append HTML elements to display fetched data
+//   data.forEach((coin) => {
+//     const coinElement = document.createElement("div");
+//     coinElement.classList.add("coin");
+//     coinElement.innerHTML = `
+//           <div class="coin-name">${coin.name}</div>
+//           <div class="coin-symbol">${coin.symbol}</div>
+//           <div class="coin-rank">${coin.rank}</div>
+//       `;
+//     apiDataElement.appendChild(coinElement);
+//   });
+// }
+
+// -----------------------------
+
+// document.getElementById("play-button").addEventListener("click", function () {
+//   var video = document.getElementById("video");
+//   video.play();
+// });
+
+// function playVideo(event) {
+//   event.preventDefault(); // Prevent default behavior of the anchor tag
+//   const video = document.getElementById("video");
+//   video.play();
+// }
+
+document
+  .getElementById("playButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    var video = document.getElementById("myVideo");
+    if (video.paused) {
+      video.play();
+      this.textContent = "Pause Video";
+    } else {
+      video.pause();
+      this.textContent = "Play Video";
     }
   });

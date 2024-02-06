@@ -36002,3 +36002,12 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+.hero-section.style-2 .image-with-shape .shape {
+  left: 10px;
+  
+}
+
+.downgreen{
+  background: grey;
+}
